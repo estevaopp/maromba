@@ -30,20 +30,18 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     {% if current_user.is_authenticated %}
                         <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/quote">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/buy">Calculator</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/sell">Diet</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/history">Workout</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/calculator">Calculator</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/diet">Diet</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/workout">Workout</a></li>
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/changepassword">Change password</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                         </ul>
                     {% else %}
                         <ul class="navbar-nav ms-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                         </ul>
                     {% endif %}
                 </div>
