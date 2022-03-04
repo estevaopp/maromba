@@ -9,19 +9,16 @@
         {{ form.csrf_token }}
         {{ form.hidden_tag() }}
         <div class="mb-3">
-            {{ form.username }}
+            {{ form.height }}
         </div>
         <div class="mb-3">
-            {{ form.name }}
+            {{ form.weight }}
         </div>
         <div class="mb-3">
-            {{ form.email }}
+            {{ form.age }}
         </div>
         <div class="mb-3">
-            {{ form.password }}
-        </div>
-        <div class="mb-3">
-            {{ form.confirm }}
+            {{ form.gender }}
         </div>
         {{ form.submit }}
     </form>

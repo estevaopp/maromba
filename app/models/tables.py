@@ -58,21 +58,23 @@ class Info(db.Model, UserMixin):
     age = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.String(1), nullable=False)
     tmb = db.Column(db.Integer, nullable=False)
-    get = db.Column(db.Integer, nullable=False)
+    get_workout = db.Column(db.Integer, nullable=False)
+    get_off = db.Column(db.Integer, nullable=False)
     protein = db.Column(db.Float, nullable=False)
     fat = db.Column(db.Float, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), unique=True, nullable=False)
 
     user = db.relationship("User", foreign_keys=user_id)
     
-    def __init__(self, user_id, height, weight, age, gender, tmb, get, protein, fat):
+    def __init__(self, user_id, height, weight, age, gender, tmb, get_workout, get_off, protein, fat):
         self.user_id = user_id
         self.height = height
         self.weight = weight
         self.age = age
         self.gender = gender
         self.tmb = tmb
-        self.get = get
+        self.get_workout = get_workout
+        self.get_off = get_off
         self.protein = protein
         self.fat = fat
 
