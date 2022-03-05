@@ -11,43 +11,50 @@
                 <th scope="col">Your Information</th>
                 <th scope="col"></th>
                 <th scope="col">Suggestions</th>
+                <th scope="col">Change</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">Weight</th>
-                <td>{{ info.weight }}kg</td>
+                <td>{{ "%.2f"|format(info.weight) }}kg</td>
                 <td>If you are a man I suggest you do a cut with you have more than 10% fat, else you do a bulking</td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
 
             <tr>
                 <th scope="row">Height</th>
-                <td>{{ info.height }}cm</td>
+                <td>{{ "%.2f"|format(info.height) }}cm</td>
                 <td></td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
 
             <tr>
                 <th scope="row">Age</th>
                 <td>{{ info.age }} years</td>
                 <td></td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
 
             <tr>
                 <th scope="row">Basal Metabolism Rate (BMR)</th>
-                <td>{{ info.tmb }} calories</td>
+                <td>{{ "%.2f"|format(info.tmb) }} calories</td>
                 <td></td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
 
             <tr>
                 <th scope="row">Total Energy Expenditure Workout</th>
-                <td>{{ info.get_workout }} calories</td>
+                <td>{{ "%.2f"|format(info.get_workout) }} calories</td>
                 <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
 
             <tr>
                 <th scope="row">Total Energy Expenditure Day Off</th>
-                <td>{{ info.get_off }} calories</td>
+                <td>{{ "%.2f"|format(info.get_off) }} calories</td>
                 <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+                <td><button type="button" class="btn btn-primary">Change</button></td>
             </tr>
         </tbody>
     </table>
