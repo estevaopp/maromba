@@ -5,40 +5,50 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table">
-        <thead>
+    <table class="table table-striped text-start">
+        <thead class="table-dark">
             <tr>
-                <th scope="col">Symbol</th>
-                <th scope="col">Name</th>
-                <th scope="col">Shares</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
+                <th scope="col">Your Information</th>
+                <th scope="col"></th>
+                <th scope="col">Suggestions</th>
             </tr>
-         </thead>
-            <tbody>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Weight</th>
+                <td>{{ info.weight }}kg</td>
+                <td></td>
+            </tr>
 
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th scope="row">Height</th>
+                <td>{{ info.height }}cm</td>
+                <td></td>
+            </tr>
 
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </tbody>
+            <tr>
+                <th scope="row">Age</th>
+                <td>{{ info.age }} years</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row">Basal Metabolism Rate (BMR)</th>
+                <td>{{ info.tmb }} calories</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th scope="row">Total Energy Expenditure Workout</th>
+                <td>{{ info.get_workout }} calories</td>
+                <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Total Energy Expenditure Day Off</th>
+                <td>{{ info.get_off }} calories</td>
+                <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+            </tr>
+        </tbody>
     </table>
 {% endblock %}

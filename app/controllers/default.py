@@ -3,7 +3,7 @@ from functools import wraps
 from is_safe_url import is_safe_url
 from flask import redirect, render_template, request, session, flash, url_for, abort
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from app.models.tables import User, Info
 from app.models.forms import LoginForm, RegisterForm, InfoForm
 from app.controllers.helpers import calcTMB, calcFat, calcProtein, calcGET
@@ -12,7 +12,10 @@ from app.controllers.helpers import calcTMB, calcFat, calcProtein, calcGET
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    return render_template("index.html")
+    user_info = Info.query.filter_by(user_id=current_user.id).first()
+    """if request.methods == "POST":
+        pass"""
+    return render_template("index.html", info=user_info)
     
 
 @app.route("/calculator", methods=["GET", "POST"])
@@ -20,15 +23,21 @@ def index():
 def calculator():
     form = InfoForm()
     if form.validate_on_submit():
+        user_info = Info.query.filter_by(user_id=current_user.id).first()
+        if user_info:
+            db.session.delete(user_info)
+            db.session.commit()
         tmb = calcTMB(form.height.data, form.weight.data, form.age.data, form.gender.data)
         get_workout = calcGET(tmb, True)
         get_off = calcGET(tmb, False)
         protein = calcProtein(form.weight.data)
         fat = calcFat(form.weight.data)
         info = Info(height=form.height.data, weight=form.weight.data, age=form.age.data, gender=form.gender.data, 
-            tmb=tmb, get_workout=get_workout, get_off=get_off, protein=protein, fat=fat)
+            tmb=tmb, get_workout=get_workout, get_off=get_off, protein=protein, fat=fat, user_id=current_user.id)
         db.session.add(info)
         db.session.commit()
+        return redirect("/")
+
     return render_template("calculator.html", form=form)
 
 

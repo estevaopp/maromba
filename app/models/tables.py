@@ -1,13 +1,9 @@
-from app import app
+from app import app, db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
-
-db = SQLAlchemy(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config["SECRET_KEY"] = "thisisasecretkey"
 
 
 class User(db.Model, UserMixin):
