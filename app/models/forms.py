@@ -1,7 +1,7 @@
 from app import app, db
 from app.models.tables import User, Info
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectField, DecimalField, IntegerField, FloatField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, IntegerField, FloatField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo, NumberRange
 
 
@@ -45,6 +45,12 @@ class InfoForm(FlaskForm):
     age = IntegerField(validators=[InputRequired()], render_kw={"placeholder": "Age"})
 
     gender = SelectField(u'Genders', choices=[('M', 'Male'), ('F', 'Female')])
+
+    tmb = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Basal Metabolism Rate (BMR)"})
+
+    get_workout = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Total Energy Expenditure Workout"})
+
+    get_off = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Total Energy Expenditure Day Off"})
 
     submit = SubmitField("Submit")
 

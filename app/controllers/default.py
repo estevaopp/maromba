@@ -1,7 +1,6 @@
 from app import app, db, lm
 from functools import wraps
-from is_safe_url import is_safe_url
-from flask import redirect, render_template, request, session, flash, url_for, abort
+from flask import redirect, render_template, request, flash, url_for, abort
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
 from app.models.tables import User, Info
