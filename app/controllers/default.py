@@ -1,6 +1,6 @@
 from app import app, db, lm
 from functools import wraps
-from flask import redirect, render_template, request, flash, url_for, abort
+from flask import redirect, render_template, request, flash, url_for, abort, request
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
 from app.models.tables import User, Info
@@ -12,8 +12,79 @@ from app.controllers.helpers import calcTMB, calcFat, calcProtein, calcGET
 @login_required
 def index():
     user_info = Info.query.filter_by(user_id=current_user.id).first()
-    """if request.methods == "POST":
-        pass"""
+    if request.method == "POST":
+        try:
+            weight = request.form["weight"]
+            weight = float(weight)
+        except:
+            weight = ""
+        if weight:
+            user_info.weight = weight
+            db.session.commit()
+
+        try:
+            height = request.form["height"]
+            height = float(height)
+        except:
+            height = ""
+        if height:
+            user_info.height = height
+            db.session.commit()
+
+        try:
+            age = request.form["age"]
+            age = float(age)
+        except:
+            age = ""
+        if age:
+            user_info.age = age
+            db.session.commit()
+
+        try:
+            tmb = request.form["tmb"]
+            tmb = float(tmb)
+        except:
+            tmb = ""
+        if tmb:
+            user_info.tmb = tmb
+            db.session.commit()
+
+        try:
+            get_off = request.form["get_off"]
+            get_off = float(get_off)
+        except:
+            get_off = ""
+        if get_off:
+            user_info.get_off = get_off
+            db.session.commit()
+
+        try:
+            get_workout = request.form["get_workout"]
+            get_workout = float(get_workout)
+        except:
+            get_workout = ""
+        if get_workout:
+            user_info.get_workout = get_workout
+            db.session.commit()
+
+        try:
+            protein = request.form["protein"]
+            protein = float(protein)
+        except:
+            protein = ""
+        if protein:
+            user_info.protein = protein
+            db.session.commit()
+
+        try:
+            fat = request.form["fat"]
+            fat = float(fat)
+        except:
+            fat = ""
+        if fat:
+            user_info.fat = fat
+            db.session.commit()
+
     return render_template("index.html", info=user_info)
     
 
