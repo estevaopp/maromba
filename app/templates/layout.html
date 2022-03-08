@@ -13,7 +13,6 @@
 
         <link href="{{ url_for('static', filename='styles.css')}} " rel="stylesheet">
 
-        <script type=/static/javascript src="{{ url_for('static', filename='javascript.js') }}"></script>
 
         <title>Maromba: {% block title %}{% endblock %}</title>
 
@@ -60,7 +59,8 @@
         <footer class="container fixed-bottom small text-center text-muted">
             Data provided by <a href="https://iexcloud.io/">IEX</a>
         </footer>
-
+        
+        <script src="{{ url_for('static', filename='javascript.js') }}"></script>
     </body>
 
 </html>

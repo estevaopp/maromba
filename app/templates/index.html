@@ -18,56 +18,58 @@
             <tbody>
                 <tr>
                     <th scope="row">Weight</th>
-                    <form action="/" method="post">
-                        <td id='weight'>{{ "%.2f"|format(info.weight) }}kg</td>
-                        <td>If you are a man I suggest you do a cut with you have more than 10% fat, else you do a bulking</td>
-                        <td id='button_weight'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ "%.2f"|format(info.weight) }}kg</td>
+                    <td>If you are a man I suggest you do a cut with you have more than 10% fat, else you do a bulking</td>
+                    <td id='change_weight'><button type="button" class="btn btn-primary" id="button_weight">Change</button></td>
                 </tr>
-
+                <input type='submit'>
                 <tr>
                     <th scope="row">Height</th>
-                    <form action="/" method="post">
-                        <td id='height'>{{ "%.2f"|format(info.height) }}cm</td>
-                        <td></td>
-                        <td id='button_height'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ "%.2f"|format(info.height) }}cm</td>
+                    <td></td>
+                    <td id='change_height'><button type="button" class="btn btn-primary" id="button_height">Change</button></td>
                 </tr>
 
                 <tr>
                     <th scope="row">Age</th>
-                    <form action="/" method="post">
-                        <td id='age'>{{ info.age }} years</td>
-                        <td></td>
-                        <td id='button_age'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ info.age }} years</td>
+                    <td></td>
+                    <td id='change_age'><button type="button" class="btn btn-primary" id="button_age">Change</button></td>
                 </tr>
 
                 <tr>
                     <th scope="row">Basal Metabolism Rate (BMR)</th>
-                    <form action="/" method="post">
-                        <td id='tmb'>{{ "%.2f"|format(info.tmb) }} calories</td>
-                        <td></td>
-                        <td id='button_tmb'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ "%.2f"|format(info.tmb) }} calories</td>
+                    <td></td>
+                    <td id='change_tmb'><button type="button" class="btn btn-primary" id="button_tmb">Change</button></td>
                 </tr>
 
                 <tr>
                     <th scope="row">Total Energy Expenditure Off</th>
-                    <form action="/" method="post">
-                        <td id='get_off'>{{ "%.2f"|format(info.get_off) }} calories</td>
-                        <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
-                        <td id='button_get_off'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ "%.2f"|format(info.get_off) }} calories</td>
+                    <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+                    <td id='change_get_off'><button type="button" class="btn btn-primary" id="button_get_off">Change</button></td>
                 </tr>
 
                 <tr>
                     <th scope="row">Total Energy Expenditure Workout</th>
-                    <form action="/" method="post">
-                        <td id='get_workout'>{{ "%.2f"|format(info.get_workout) }} calories</td>
-                        <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
-                        <td id='button_get_workout'><button type="button" class="btn btn-primary">Change</button></td>
-                    </form>
+                    <td>{{ "%.2f"|format(info.get_workout) }} calories</td>
+                    <td>If you want to gain muscle, eat 350 more, if you want to lose fat, eat 350 less. If what you want isn't happening, adjust the calories.</td>
+                    <td id='change_get_workout'><button type="button" class="btn btn-primary" id="button_get_workout">Change</button></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Protein</th>
+                    <td>{{ "%.2f"|format(info.protein) }}g</td>
+                    <td>I suggest you the app "fatsecret" to count calories and macronutrients</td>
+                    <td id='change_protein'><button type="button" class="btn btn-primary" id="button_protein">Change</button></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Fat</th>
+                    <td>{{ "%.2f"|format(info.fat) }}g</td>
+                    <td>I suggest you the app "fatsecret" to count calories and macronutrients</td>
+                    <td id='change_fat'><button type="button" class="btn btn-primary" id="button_fat">Change</button></td>
                 </tr>
             </tbody>
         {% else %}
