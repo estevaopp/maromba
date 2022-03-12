@@ -46,11 +46,11 @@ class InfoForm(FlaskForm):
 
     gender = SelectField(u'Genders', choices=[('M', 'Male'), ('F', 'Female')])
 
-    tmb = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Basal Metabolism Rate (BMR)"})
+    tmb = FloatField(render_kw={"placeholder": "Basal Metabolism Rate (BMR)"})
 
-    get_workout = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Total Energy Expenditure Workout"})
+    get_workout = FloatField(render_kw={"placeholder": "Total Energy Expenditure Workout"})
 
-    get_off = FloatField(validators=[InputRequired()], render_kw={"placeholder": "Total Energy Expenditure Day Off"})
+    get_off = FloatField(render_kw={"placeholder": "Total Energy Expenditure Day Off"})
 
     submit = SubmitField("Submit")
 

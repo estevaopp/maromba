@@ -107,7 +107,6 @@ def calculator():
         db.session.add(info)
         db.session.commit()
         return redirect("/")
-
     return render_template("calculator.html", form=form)
 
 
